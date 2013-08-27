@@ -8,13 +8,13 @@
             tallest;
         $(window).on("load resize", function () {
             self.children().each(function (i) {
+                $(this).css("height", "");
                 var height = $(this).height(),
                     paddingTop = Math.ceil(parseFloat($(this).css("padding-top"))),
                     paddingBottom = Math.ceil(parseFloat($(this).css("padding-bottom"))),
-                    borderTop = Math.ceil(parseFloat($(this).css("border-top"))),
-                    borderBottom = Math.ceil(parseFloat($(this).css("border-bottom"))),
+                    borderTop = Math.ceil(parseFloat($(this).css("border-top-width"))),
+                    borderBottom = Math.ceil(parseFloat($(this).css("border-bottom-width"))),
                     totalHeight = height + paddingTop + paddingBottom + borderBottom + borderTop;
-                $(this).css("height", "");
                 nodeObjects[i] = {
                     height: height,
                     paddingTop: paddingTop,
@@ -24,6 +24,7 @@
                     totalHeight: totalHeight
                 };
                 heights[i] = totalHeight;
+                console.log(nodeObjects);
             });
         });
         $(window).on("load resize", function () {
