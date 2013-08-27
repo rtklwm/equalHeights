@@ -24,7 +24,6 @@
                     totalHeight: totalHeight
                 };
                 heights[i] = totalHeight;
-                console.log(nodeObjects);
             });
         });
         $(window).on("load resize", function () {
