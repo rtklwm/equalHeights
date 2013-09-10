@@ -1,7 +1,7 @@
 /*global window, $, jQuery*/
 (function ($) {
     "use strict";
-    $.fn.equalHeights = function () {
+    $.fn.equalHeights = function (widthThreshold) {
         var self = this,
             nodeObjects = [],
             heights = [],
@@ -27,6 +27,9 @@
             });
         });
         $(window).on("load resize", function () {
+            if (widthThreshold && $(window).width() < widthThreshold) {
+                return false;
+            }
             self.children().each(function (i) {
                 var diff,
                     oldHeight = $(this).height(),
